@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environment
+backend/venv/
+venv/
+
+# Node dependencies
+frontend/node_modules/
+node_modules/
+
+# Local databases and caches
+backend/database/local_db.json
+.pytest_cache/
+.agents/
+
+# Environment files
+backend/.env
+.env
+.env.local
+
+# Vite production build
+frontend/dist/
+dist/
+
+# Logs and system files
+*.log
+frontend/chrome_exec.log
+frontend/chrome-profile/
+.DS_Store
+Thumbs.db

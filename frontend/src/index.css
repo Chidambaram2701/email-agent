@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Google Stitch MD3 Light Palette (RGB values for Tailwind opacity-awareness) */
+  --slate-50: 249, 249, 249;     /* Canvas background (#f9f9f9) */
+  --slate-100: 255, 255, 255;    /* Card background (#ffffff) */
+  --slate-200: 224, 224, 224;    /* Borders / divider (#e0e0e0) */
+  --slate-300: 210, 210, 210;    /* Disabled (#d2d2d2) */
+  --slate-400: 117, 117, 117;    /* Secondary text / icons */
+  --slate-500: 97, 97, 97;       /* Muted text */
+  --slate-600: 66, 66, 66;       /* Body text */
+  --slate-700: 33, 33, 33;       /* Bold text */
+  --slate-800: 18, 18, 18;       /* Dark gray accents */
+  --slate-900: 33, 33, 33;       /* Primary text */
+  --slate-950: 18, 18, 18;       /* Deepest text */
+
+  --brand-50: 232, 240, 254;     /* Light Material Blue tint */
+  --brand-100: 201, 224, 253;
+  --brand-200: 164, 201, 251;
+  --brand-300: 123, 174, 249;
+  --brand-400: 74, 144, 246;
+  --brand-500: 26, 115, 232;     /* Google Blue (#1a73e8) */
+  --brand-600: 21, 101, 192;
+  --brand-700: 13, 71, 161;
+  --brand-800: 13, 71, 161;
+  --brand-900: 13, 71, 161;
+  --brand-950: 13, 71, 161;
+}
+
+.dark {
+  /* Google Stitch MD3 Dark Palette (Solid charcoal, avoiding pure black) */
+  --slate-50: 30, 30, 30;        /* Light text fallback (#1e1e1e) */
+  --slate-100: 229, 226, 225;    /* Primary text (#e5e2e1) */
+  --slate-200: 65, 71, 84;       /* Outline border (#414754) */
+  --slate-300: 139, 144, 159;    /* Outline text (#8b909f) */
+  --slate-400: 193, 198, 214;    /* On-surface-variant (#c1c6d6) */
+  --slate-500: 139, 144, 159;
+  --slate-600: 65, 71, 84;
+  --slate-700: 45, 45, 45;       /* border-subtle (#2D2D2D) */
+  --slate-800: 45, 45, 45;       /* border-subtle (#2D2D2D) */
+  --slate-900: 30, 30, 30;       /* Surface (#1E1E1E) */
+  --slate-950: 18, 18, 18;       /* Canvas background (#121212) */
+
+  --brand-50: 13, 26, 65;
+  --brand-100: 13, 41, 104;
+  --brand-200: 13, 59, 137;
+  --brand-300: 26, 85, 180;
+  --brand-400: 26, 115, 232;
+  --brand-500: 26, 115, 232;     /* Google Blue (#1a73e8) */
+  --brand-600: 74, 144, 246;
+  --brand-700: 123, 174, 249;
+  --brand-800: 164, 201, 251;
+  --brand-900: 201, 224, 253;
+  --brand-950: 232, 240, 254;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased selection:bg-brand-500/30 selection:text-brand-200;
+  }
+
+  /* Custom Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full border border-transparent hover:bg-slate-700;
+  }
+
+  /* Focus rings */
+  input:focus, select:focus, textarea:focus {
+    @apply outline-none ring-2 ring-brand-500/50 border-brand-500/70;
+  }
+}
+
+@layer components {
+  /* Professional Solid Panels (Fluent 2 style) */
+  .glass-panel {
+    @apply bg-slate-900 border border-slate-800 shadow-lg rounded-lg transition-all duration-200;
+  }
+  
+  .glass-card {
+    @apply bg-slate-900 border border-slate-800 hover:border-brand-500/30 rounded-lg transition-all duration-200;
+  }
+
+  .glass-input {
+    @apply bg-slate-950 border border-slate-800 focus:border-brand-500/70 rounded-md text-slate-100 placeholder-slate-500 px-3 py-1.5 transition-all duration-150;
+  }
+
+  .glass-btn-primary {
+    @apply bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-1.5 rounded-md active:scale-[0.98] transition-all duration-100;
+  }
+
+  .glass-btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-1.5 rounded-md active:scale-[0.98] transition-all duration-100;
+  }
+
+  /* Status Badges */
+  .badge-high {
+    @apply bg-rose-950/40 text-rose-400 border border-rose-800/50 font-medium px-2 py-0.5 rounded-full text-xs;
+  }
+  .badge-medium {
+    @apply bg-amber-950/40 text-amber-400 border border-amber-800/50 font-medium px-2 py-0.5 rounded-full text-xs;
+  }
+  .badge-low {
+    @apply bg-emerald-950/40 text-emerald-400 border border-emerald-800/50 font-medium px-2 py-0.5 rounded-full text-xs;
+  }
+
+  .badge-work {
+    @apply bg-blue-950/40 text-blue-400 border border-blue-800/50 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-meeting {
+    @apply bg-purple-950/40 text-purple-400 border border-purple-800/50 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-hr {
+    @apply bg-indigo-950/40 text-indigo-400 border border-indigo-800/50 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-finance {
+    @apply bg-teal-950/40 text-teal-400 border border-teal-800/50 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-personal {
+    @apply bg-sky-950/40 text-sky-400 border border-sky-800/50 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-spam {
+    @apply bg-orange-950/40 text-orange-400 border border-orange-800/50 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  /* Light Theme Overrides */
+  .light {
+    body {
+      @apply bg-slate-50 text-slate-900 selection:bg-brand-500/20 selection:text-brand-800;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-slate-300 hover:bg-slate-400;
+    }
+    .glass-panel {
+      @apply bg-white border border-slate-200 shadow-md shadow-slate-100;
+    }
+    .glass-card {
+      @apply bg-white border border-slate-200 hover:border-brand-500/30 shadow-sm;
+    }
+    .glass-input {
+      @apply bg-white border border-slate-300 text-slate-900 placeholder-slate-400;
+    }
+    .glass-btn-secondary {
+      @apply bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 hover:border-slate-400;
+    }
+    /* Light Theme Badges */
+    .badge-high {
+      @apply bg-rose-50 text-rose-700 border-rose-200;
+    }
+    .badge-medium {
+      @apply bg-amber-50 text-amber-700 border-amber-200;
+    }
+    .badge-low {
+      @apply bg-emerald-50 text-emerald-700 border-emerald-200;
+    }
+    .badge-work {
+      @apply bg-blue-50 text-blue-700 border-blue-200;
+    }
+    .badge-meeting {
+      @apply bg-purple-50 text-purple-700 border-purple-200;
+    }
+    .badge-hr {
+      @apply bg-indigo-50 text-indigo-700 border-indigo-200;
+    }
+    .badge-finance {
+      @apply bg-teal-50 text-teal-700 border-teal-200;
+    }
+    .badge-personal {
+      @apply bg-sky-50 text-sky-700 border-sky-200;
+    }
+    .badge-spam {
+      @apply bg-orange-50 text-orange-700 border-orange-200;
+    }
+  }
+}
