@@ -53,6 +53,7 @@ A production-ready full-stack application designed to parse, classify, summarize
 email-agent/
 ├── docker-compose.yml
 ├── README.md
+├── .gitignore                  # Git exclusions for dependencies and secrets
 ├── backend/
 │   ├── main.py                 # FastAPI application coordinator
 │   ├── requirements.txt        # Backend dependencies
@@ -87,6 +88,18 @@ Key configuration variables:
 *   `AI_MODE`: Set to `"FALLBACK"` (default) to run the application immediately without downloading 2GB+ of Hugging Face models. Set to `"PRODUCTION"` to load local neural models (`facebook/bart-large-mnli`, `facebook/bart-large-cnn`, `google/flan-t5-base`).
 *   `DEMO_MODE`: Set to `true` (default) to bypass IMAP connection checks and generate simulated business emails on sync. Set to `false` to pull from your real account.
 *   `AWS_ACCESS_KEY_ID`: Leave blank to automatically activate the local file database (`backend/database/local_db.json`). Fill out to bind AWS DynamoDB.
+
+---
+
+## Codebase Knowledge Graph
+
+This project has a **Graphify Knowledge Graph** pre-generated under `graphify-out/` to facilitate navigation, concept discovery, and architectural analysis.
+
+You can query the graph directly using the `graphify` CLI:
+*   **Query the codebase:** `graphify query "How does IMAP authentication fallback work?"`
+*   **Explain a concept:** `graphify explain "ClassifierAgent"`
+*   **Trace dependencies:** `graphify path "backend/main.py" "backend/database/dynamodb.py"`
+*   **Keep it current:** Run `graphify update .` after making modifications to the source code to refresh the graph.
 
 ---
 
