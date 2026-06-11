@@ -6,6 +6,18 @@ import {
   MdKeyboardArrowRight, MdAssignment, MdPendingActions, MdTaskAlt,
   MdAdd, MdTrendingUp, MdFlag, MdSchedule, MdOpenInNew
 } from 'react-icons/md';
+import { 
+  ResponsiveContainer, 
+  BarChart, 
+  Bar, 
+  Cell, 
+  XAxis, 
+  YAxis, 
+  Tooltip, 
+  PieChart, 
+  Pie, 
+  CartesianGrid 
+} from 'recharts';
 import { useEmailStore } from '../store/emailStore';
 import { useTaskStore } from '../store/taskStore';
 import { useAnalyticsStore } from '../store/analyticsStore';
@@ -21,6 +33,33 @@ const Dashboard: React.FC = () => {
     fetchTasks();
     fetchAnalytics();
   }, []);
+
+  // Category chart data preparation
+  const categoryData = analytics?.category_counts || {};
+  const categoriesList = ["Work", "Meeting", "HR", "Finance", "Personal", "Spam"];
+  const chartData = categoriesList.map(cat => ({
+    name: cat,
+    Count: categoryData[cat] ?? 0,
+  }));
+
+  // Sentiment chart data preparation
+  const sentimentCounts = analytics?.sentiment_counts || {};
+  const rawSentimentData = [
+    { name: 'Positive', value: sentimentCounts['Positive'] ?? 0, color: '#10b981' },
+    { name: 'Neutral', value: sentimentCounts['Neutral'] ?? 0, color: '#64748b' },
+    { name: 'Negative', value: sentimentCounts['Negative'] ?? 0, color: '#f43f5e' }
+  ];
+  const sentimentData = rawSentimentData.filter(item => item.value > 0);
+  const totalSentimentCount = rawSentimentData.reduce((acc, curr) => acc + curr.value, 0);
+
+  const categoryChartColors: Record<string, string> = {
+    Work: '#1a73e8',     // Brand/Google Blue
+    Meeting: '#a855f7',  // Purple
+    HR: '#6366f1',       // Indigo
+    Finance: '#14b8a6',  // Teal
+    Personal: '#0ea5e9', // Sky Blue
+    Spam: '#f97316'      // Orange
+  };
 
   const statsCards = [
     {
@@ -146,6 +185,127 @@ const Dashboard: React.FC = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Analytics Charts Section */}
+      <motion.div 
+        variants={itemVariants}
+        className="grid grid-cols-1 lg:grid-cols-12 gap-5"
+      >
+        {/* Email Category Distribution (Bar Chart) */}
+        <div className="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-md p-5 flex flex-col justify-between hover:bg-[#232323] transition-colors relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+          <div className="relative z-10 mb-4">
+            <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
+              <MdTrendingUp className="text-brand-500" size={16} />
+              <span>Email Distribution by Category</span>
+            </h3>
+            <p className="text-[10px] text-slate-500">Volume of incoming emails classified automatically by business domains.</p>
+          </div>
+          
+          <div className="h-[200px] w-full relative z-10">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={chartData}
+                margin={{ top: 10, right: 10, left: -25, bottom: 0 }}
+                barSize={28}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#2D2D2D" vertical={false} />
+                <XAxis 
+                  dataKey="name" 
+                  stroke="#8b909f" 
+                  fontSize={10} 
+                  tickLine={false} 
+                  axisLine={false} 
+                />
+                <YAxis 
+                  stroke="#8b909f" 
+                  fontSize={10} 
+                  tickLine={false} 
+                  axisLine={false} 
+                  allowDecimals={false}
+                />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: '#1E1E1E', 
+                    borderColor: '#2D2D2D',
+                    borderRadius: '6px',
+                    fontSize: '11px',
+                    color: '#e5e2e1'
+                  }}
+                  cursor={{ fill: 'rgba(255, 255, 255, 0.03)' }}
+                />
+                <Bar dataKey="Count" radius={[4, 4, 0, 0]}>
+                  {chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={categoryChartColors[entry.name] || '#1a73e8'} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Sentiment Analysis Donut Chart */}
+        <div className="lg:col-span-4 bg-slate-900 border border-slate-800 rounded-md p-5 flex flex-col justify-between hover:bg-[#232323] transition-colors relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+          <div className="relative z-10 mb-4">
+            <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
+              <MdFlag className="text-emerald-500" size={16} />
+              <span>Communication Sentiment</span>
+            </h3>
+            <p className="text-[10px] text-slate-500 font-semibold">Sentiment profile of active conversations.</p>
+          </div>
+
+          <div className="h-[150px] w-full flex items-center justify-center relative z-10">
+            {totalSentimentCount === 0 ? (
+              <div className="text-slate-500 text-[10px] text-center">
+                <span>No sentiment data analyzed.</span>
+              </div>
+            ) : (
+              <>
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={sentimentData}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={45}
+                      outerRadius={60}
+                      paddingAngle={3}
+                      dataKey="value"
+                    >
+                      {sentimentData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: '#1E1E1E',
+                        borderColor: '#2D2D2D',
+                        borderRadius: '6px',
+                        fontSize: '11px',
+                        color: '#e5e2e1'
+                      }}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+                <div className="absolute flex flex-col items-center justify-center">
+                  <span className="text-[8px] uppercase font-bold text-slate-500 tracking-wider">Total</span>
+                  <span className="text-lg font-extrabold text-slate-100 leading-none">{totalSentimentCount}</span>
+                </div>
+              </>
+            )}
+          </div>
+
+          <div className="flex justify-center gap-3 text-[10px] font-semibold text-slate-400 mt-2 relative z-10">
+            {rawSentimentData.map((item, idx) => (
+              <div key={idx} className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
+                <span>{item.name}: {item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* Main Split Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">

@@ -1,0 +1,117 @@
+{
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\package.json": {
+    "mtime": 1780302801.432401,
+    "ast_hash": "621c19ccac64fa42b521efb5a16e0f6f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\postcss.config.js": {
+    "mtime": 1780296111.6994898,
+    "ast_hash": "ef3ba2a81ba19f8ea5ddf625521e96f0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\App.tsx": {
+    "mtime": 1780296177.0210288,
+    "ast_hash": "3386eb0499bb242a3706d744f94023bf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\hooks\\useTheme.ts": {
+    "mtime": 1780563484.5843668,
+    "ast_hash": "88036e6ca8155addacb210a64653e7db",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\layouts\\DashboardLayout.tsx": {
+    "mtime": 1780563654.662459,
+    "ast_hash": "59be4cdc91e648f678f71394cfcdfc19",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\main.tsx": {
+    "mtime": 1780296159.882843,
+    "ast_hash": "dc3f0e8bacaac30a77f411e1f3ca7f07",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\pages\\Analytics.tsx": {
+    "mtime": 1780296216.2722604,
+    "ast_hash": "1e4c78074a542d1abb435220e517471f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\pages\\Dashboard.tsx": {
+    "mtime": 1780648166.1322572,
+    "ast_hash": "7869bd03edd97b28d87581cf7939973c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\pages\\EmailDetails.tsx": {
+    "mtime": 1780296200.7749684,
+    "ast_hash": "0025673883232d071adcd6540e291fcd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\pages\\Inbox.tsx": {
+    "mtime": 1780310325.5491064,
+    "ast_hash": "674bf515f3a4a7fceb04ba2671ee4431",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\pages\\Settings.tsx": {
+    "mtime": 1780309401.028204,
+    "ast_hash": "8b4b68b549836287eb1e0b371491d82e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\pages\\TaskManagement.tsx": {
+    "mtime": 1780296208.7691202,
+    "ast_hash": "bcc275854c6d421d4686beded632c973",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\services\\api.ts": {
+    "mtime": 1780389650.688073,
+    "ast_hash": "22164718d0c718d5d3885282d78d4938",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\store\\analyticsStore.ts": {
+    "mtime": 1780296143.009768,
+    "ast_hash": "7c7d5acfe4007ac57e9d379635987f2a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\store\\authStore.ts": {
+    "mtime": 1780302646.5449078,
+    "ast_hash": "6e7a0c26d60578c15c8c36c326bcf5f1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\store\\emailStore.ts": {
+    "mtime": 1780310313.0548346,
+    "ast_hash": "4d0887c85d4b299366dbfbd421bfd910",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\store\\notificationStore.ts": {
+    "mtime": 1780296146.7758412,
+    "ast_hash": "6c6e308f514817506a7e6e08843880aa",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\store\\taskStore.ts": {
+    "mtime": 1780296139.6284235,
+    "ast_hash": "ddf494ec48ae40f73f7f48d1448a7eb2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\src\\vite-env.d.ts": {
+    "mtime": 1780302654.7515523,
+    "ast_hash": "0352474ba2918efe13895edbc3780d94",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\tailwind.config.js": {
+    "mtime": 1780560100.901949,
+    "ast_hash": "045fed5e4ecbe1d2f90539821d344e1c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\tsconfig.json": {
+    "mtime": 1780302640.7821007,
+    "ast_hash": "0b8ba106cd187c9482c46c257e3ea60f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\vite.config.ts": {
+    "mtime": 1780296103.9043887,
+    "ast_hash": "217d895ae462323d0f0d8b588997d816",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\Lenovo\\Downloads\\email restart\\frontend\\index.html": {
+    "mtime": 1780560119.1704621,
+    "ast_hash": "773d201c4ab5e162ab803fe3b67424ce",
+    "semantic_hash": ""
+  }
+}
