@@ -194,14 +194,14 @@ const DashboardLayout: React.FC = () => {
         className={`glass-panel h-screen sticky top-0 left-0 flex flex-col justify-between py-4 ${sidebarOpen ? 'px-4' : 'px-2'} z-40 rounded-none border-r border-y-0 border-l-0`}
       >
         <div>
-          {/* Logo (Material Design 3 Stitch style) */}
+          {/* Logo (Material Design 3 Atlas style) */}
           <div className={`flex items-center border-l-4 border-transparent border-b border-slate-800/40 ${sidebarOpen ? 'px-2 gap-3 py-3.5 mb-6' : 'justify-center px-0 py-3.5 mb-6'}`}>
             <div className="w-9 h-9 rounded-full bg-brand-600 flex items-center justify-center shrink-0 text-white font-bold shadow-sm">
               <MdInbox size={18} />
             </div>
             {sidebarOpen && (
               <div className="flex flex-col">
-                <h1 className="font-semibold text-sm text-slate-100 light:text-slate-800 tracking-tight leading-none mb-0.5">Aether AI</h1>
+                <h1 className="font-semibold text-sm text-slate-100 light:text-slate-800 tracking-tight leading-none mb-0.5">Atlas AI</h1>
                 <p className="text-[10px] text-slate-500">Enterprise Agent</p>
               </div>
             )}
